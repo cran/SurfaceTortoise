@@ -3,7 +3,7 @@
 \docType{data}
 \name{boundary}
 \alias{boundary}
-\title{Boundary polygon for field 10 at Bjertorp farm in SouthWest Sweden}
+\title{Boundary polygon for field 10 at Bjertorp farm in southwest Sweden}
 \format{A SpatialPolygonsDataFrame with the boundary polygon. The polygon has
 been shrunk (i.e. the field is somewhat larger than the polygon)
 Projected coordinate system Sweref99TM (epsg: 3006).}
@@ -11,7 +11,7 @@ Projected coordinate system Sweref99TM (epsg: 3006).}
 data(boundary)
 }
 \description{
-Boundary polygon for field 10 at Bjertorp farm in SouthWest Sweden
+Boundary polygon for field 10 at Bjertorp farm in southwest Sweden
 }
 \references{
 Piikki, K., Söderström, M., & Stenberg, B. (2013). Sensor data

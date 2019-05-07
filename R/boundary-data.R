@@ -1,4 +1,4 @@
-#' Boundary polygon for field 10 at Bjertorp farm in SouthWest Sweden
+#' Boundary polygon for field 10 at Bjertorp farm in southwest Sweden
 #'
 #' @usage data(boundary)
 #'
@@ -12,6 +12,6 @@
 #' fusion for topsoil clay mapping. Geoderma, 199, 106-116.
 #'
 #' @example
-#' data(conductivity)
+#' data(boundary)
 #' raster::plot(boundary)
 "boundary"
