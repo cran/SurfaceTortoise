@@ -182,7 +182,7 @@ tortoise<-function(x=NULL,
 
   #is the polygon overlapping the raster?
   if(!is.null(x) & !is.null(y) & (method=='directed')){
-    if(!ncell(crop(x,y))>0) stop('x and y are not overlapping')
+    if(!ncell(crop(x,y))>0) stop(call. =F, 'x and y are not overlapping')
   }
 
   #is a too high number of samples per strata (stop_dens) specified?
@@ -201,10 +201,10 @@ tortoise<-function(x=NULL,
 
   #is strat_size == 0 when stop_n has not been specified
   if(is.null(strat_size)& is.null(stop_n))  {
-    stop('At least one of the arguments stop_n and strat_size needs to be specified')
+    stop(call. =F, 'At least one of the arguments stop_n and strat_size needs to be specified')
   }
   if(!is.null(strat_size)) if(strat_size ==0 & is.null(stop_n))  {
-    stop('If number of samples is not specified (argument: stop_n), strat_size must be >=1')
+    stop(call. =F, 'If number of samples is not specified (argument: stop_n), strat_size must be >=1')
   }
 
   #store projection
