@@ -4,7 +4,7 @@
 #' algoritm. Grid sampling and random  sampling are also available. All three sampling
 #' designs can optionally be stratified by a square grid to ensure spatial coverage.
 #'
-#' @author Kristin Piikki & Mats Söderström ,  \email{kristin.piikki@@slu.se}
+#' @author Kristin Piikki, Mats Söderström & John Mutua,  \email{kristin.piikki@slu.se}  \email{kristin.piikki@@slu.se}
 
 #' @param x Raster dataset. Required for method = directed. The raster must have
 #' a defined coordinate system and must be of class numeric. If x is a raster stack or
@@ -102,9 +102,16 @@
 #' 2002, Skara, Sweden.
 
 #' @examples
-#' data(boundary)
-#' grid.sampling<-tortoise(y=boundary,method='grid',edge=30,strat_size=50,
-#' min_dist=10,plot_results=FALSE)
+#' #create a boundary polygon for the area to be sampled
+#' coords<- c(1, 4, 3, 4, 3, 5, 1, 5)
+#' coords <-matrix(data=coords, ncol=2, byrow=TRUE) #coordinates
+#' prj<-'+init=epsg:3857' #projection
+#' poly<-list(sp::Polygon(coords)) #polygon
+#' poly<-list(sp::Polygons(poly,'id')) #polygon
+#' poly <- sp::SpatialPolygons(poly, proj4string=sp::CRS(prj)) #polygon
+#' #do grid sampling
+#' grid<-tortoise(y=poly,method='grid',edge=0.1,strat_size=0.2,
+#'                min_dist=10,plot_results=TRUE)
 
 #' @export
 tortoise<-function(x=NULL,

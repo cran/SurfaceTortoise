@@ -4,10 +4,21 @@
 \alias{tortoise}
 \title{SurfaceTortoise}
 \usage{
-tortoise(x = NULL, y = NULL, method = "directed", edge = 0,
-  strat_size = NULL, min_dist = 0, p_idw = 2, nmax_idw = 8,
-  resolution = NULL, filter = 1, stop_n = NULL, stop_dens = 1,
-  plot_results = F)
+tortoise(
+  x = NULL,
+  y = NULL,
+  method = "directed",
+  edge = 0,
+  strat_size = NULL,
+  min_dist = 0,
+  p_idw = 2,
+  nmax_idw = 8,
+  resolution = NULL,
+  filter = 1,
+  stop_n = NULL,
+  stop_dens = 1,
+  plot_results = F
+)
 }
 \arguments{
 \item{x}{Raster dataset. Required for method = directed. The raster must have
@@ -103,9 +114,16 @@ The optional raster processing steps:
 brick with multiple layers).
 }
 \examples{
-data(boundary)
-grid.sampling<-tortoise(y=boundary,method='grid',edge=30,strat_size=50,
-min_dist=10,plot_results=FALSE)
+#create a boundary polygond for the area to be sampled
+coords<- c(1, 4, 3, 4, 3, 5, 1, 5)
+coords <-matrix(data=coords, ncol=2, byrow=TRUE) #coordinates
+prj<-'+init=epsg:3857' #projection
+poly<-list(sp::Polygon(coords)) #polygon
+poly<-list(sp::Polygons(poly,'id')) #polygon
+poly <- sp::SpatialPolygons(poly, proj4string=sp::CRS(prj)) #polygon
+#do grid sampling
+grid<-tortoise(y=poly,method='grid',edge=0.1,strat_size=0.2,
+               min_dist=10,plot_results=TRUE)
 }
 \references{
 Olsson, D. 2002. A method to optimize soil sampling from
@@ -114,5 +132,5 @@ Implementation of Precision Farming in Practical Agriculture, 10-12 June
 2002, Skara, Sweden.
 }
 \author{
-Kristin Piikki & Mats Söderström ,  \email{kristin.piikki@slu.se}
+Kristin Piikki, Mats Söderström & John Mutua,  \email{kristin.piikki@slu.se}  \email{kristin.piikki@slu.se}
 }
